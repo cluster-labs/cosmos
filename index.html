@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <!-- jQuery -->
+  <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+
+  <!-- x3dom -->
+  <link rel='stylesheet' href='./bower_components/x3dom/x3dom.css'>
+  </link>
+  <script src="./bower_components/x3dom/x3dom.js"></script>
+
+  <!-- y-js -->
+  <script src="./bower_components/yjs/y.js"></script>
+
+  <!-- custom -->
+  <link rel='stylesheet' href='./main.css'>
+  </link>
+  <script src="./x3d_extensions.js"></script>
+  <script src="./sync.js"></script>
+</head>
+
+
+<body>
+  <script>
+    function fileLoaded() {
+      document.getElementById('x3dViewer').runtime.showAll();
+    }
+  </script>
+
+  <x3d showStat='false' showLog='false' x='0px' y='0px'>
+    <scene>
+      <navigationInfo headlight="true" type="examine"></navigationInfo>
+      <background skyColor='1.0 1.0 1.0'> </background>
+      <viewpoint id="viewport" DEF="viewport" centerOfRotation="0 0 0" position="0.00 0.00 3.00"
+        orientation="-0.92 0.35 0.17 0.00" fieldOfView="0.858"> </viewpoint>
+      <inline url='Hand.x3d' onload='sync.modelLoaded()'></inline>
+    </scene>
+  </x3d>
+  <script>
+    sync.init()
+  </script>
+</body>
+
+</html>
